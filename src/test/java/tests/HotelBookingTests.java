@@ -30,6 +30,8 @@ public class HotelBookingTests {
 
     @BeforeTest
     public void setUp() {
+        String currentDir = System.getProperty("user.dir");
+        System.setProperty("webdriver.gecko.driver", currentDir + "/src/test/java/driver/geckodriver");
         driver = new FirefoxDriver();
         String url = "http://hotel-test.equalexperts.io";
         driver.get(url);
@@ -37,7 +39,8 @@ public class HotelBookingTests {
         firstName = utils.getFirstName();
         lastName = utils.getLastName();
 
-        webDriverWait = new WebDriverWait(driver, 10);
+        int timeout = 10;
+        webDriverWait = new WebDriverWait(driver, timeout);
 
         bookingRow = By.xpath(String.format("//div[@class='row']/div/p[text() = '%s']", firstName));
         deleteButtonForBooking = By.xpath(String.format("//div[div[p[text()='%s']]]/div/input", firstName));
@@ -54,7 +57,6 @@ public class HotelBookingTests {
         driver.findElement(checkInElement).sendKeys(utils.getFutureDate(10));
         driver.findElement(checkout).sendKeys(utils.getFutureDate(20));
         driver.findElement(saveButton).click();
-        webDriverWait = new WebDriverWait(driver, 10);
         webDriverWait.until(ExpectedConditions.presenceOfElementLocated(bookingRow));
 
         driver.findElement(deleteButtonForBooking).click();

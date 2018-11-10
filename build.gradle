@@ -17,3 +17,7 @@ dependencies {
     testCompile group: 'org.testng', name: 'testng', version: '6.10'
     testCompile group: 'com.github.javafaker', name: 'javafaker', version: '0.16'
 }
+
+test {
+    useTestNG()
+}
