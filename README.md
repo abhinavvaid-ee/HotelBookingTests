@@ -1,5 +1,9 @@
 # HotelBookingTests
-In order to execute test in this project you need - Java and Gradle
+In order to execute test in this project you need - Java, Mozilla Firefox and Gradle
+
+## To install Mozilla Firefox
+
+Visit [Mozilla Firefox Download page](https://www.mozilla.org/en-GB/firefox/new/)
 
 ## To install java
 
